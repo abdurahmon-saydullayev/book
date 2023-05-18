@@ -1,11 +1,11 @@
 package service
 
 import (
-	"backend-templates/golang-psql/config"
-	"backend-templates/golang-psql/genproto/book_service"
-	"backend-templates/golang-psql/grpc/client"
-	"backend-templates/golang-psql/pkg/logger"
-	"backend-templates/golang-psql/storage"
+	"GoProject/book/config"
+	"GoProject/book/genproto/book_service"
+	"GoProject/book/grpc/client"
+	"GoProject/book/pkg/logger"
+	"GoProject/book/storage"
 	"context"
 
 	"github.com/golang/protobuf/ptypes/empty"
