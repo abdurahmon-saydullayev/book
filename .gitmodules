@@ -1,0 +1,3 @@
+[submodule "book-protos"]
+	path = book-protos
+	url = git@github.com:abdurahmon-saydullayev/book-protos.git
