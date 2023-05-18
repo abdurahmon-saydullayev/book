@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package author_service;
+option go_package="genproto/author_service";
+
+import "author.proto";
+
+import "google/protobuf/empty.proto";
+
+service BookService {
+    rpc CreateAuthor (CreateAuthorRequest) returns (Author);
+    rpc GetBook (AuthorPrimaryKey) returns (Author);
+    rpc GetBooksList (GetAuthorListRequest) returns (GetAuthorListResponse);
+    rpc UpdateBook (UpdateAuthorRequest) returns (Author);
+    rpc PatchUpdate (PatchUpdateRequest) returns (Author);
+    rpc DeleteBook (AuthorPrimaryKey) returns (google.protobuf.Empty);
+}
