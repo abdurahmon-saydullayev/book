@@ -7,11 +7,11 @@ import "author.proto";
 
 import "google/protobuf/empty.proto";
 
-service BookService {
+service AuthorService {
     rpc CreateAuthor (CreateAuthorRequest) returns (Author);
-    rpc GetBook (AuthorPrimaryKey) returns (Author);
-    rpc GetBooksList (GetAuthorListRequest) returns (GetAuthorListResponse);
-    rpc UpdateBook (UpdateAuthorRequest) returns (Author);
+    rpc GetAuthor (AuthorPrimaryKey) returns (Author);
+    rpc GetAuthorsList (GetAuthorListRequest) returns (GetAuthorListResponse);
+    rpc UpdateAuthor (UpdateAuthorRequest) returns (Author);
     rpc PatchUpdate (PatchUpdateRequest) returns (Author);
-    rpc DeleteBook (AuthorPrimaryKey) returns (google.protobuf.Empty);
+    rpc DeleteAuthor (AuthorPrimaryKey) returns (google.protobuf.Empty);
 }
