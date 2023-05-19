@@ -13,6 +13,7 @@ import (
 type Store struct {
 	db   *pgxpool.Pool
 	book storage.BookRepoI
+	author storage.AuthorRepoI
 }
 
 func NewPostgres(ctx context.Context, cfg config.Config) (storage.StorageI, error) {
@@ -64,4 +65,11 @@ func (s *Store) Book() storage.BookRepoI {
 	}
 
 	return s.book
+}
+
+func (s *Store) Author() storage.AuthorRepoI{
+	if s.author == nil {
+		s.author = NewAuthorRepo(s.db)
+	}
+	return s.author
 }

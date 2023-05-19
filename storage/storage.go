@@ -1,6 +1,7 @@
 package storage
 
 import (
+	"GoProject/book/genproto/author_service"
 	"GoProject/book/genproto/book_service"
 	"context"
 )
@@ -8,6 +9,7 @@ import (
 type StorageI interface {
 	CloseDB()
 	Book() BookRepoI
+	Author() AuthorRepoI
 }
 
 type BookRepoI interface {
@@ -17,4 +19,9 @@ type BookRepoI interface {
 	Update(ctx context.Context, req *book_service.UpdateBookRequest) (rowsAffected int64, err error)
 	PatchUpdate(ctx context.Context, req *book_service.PatchUpdateRequest) (rowsAffected int64, err error)
 	Delete(ctx context.Context, req *book_service.BookPrimaryKey) (rowsAffected int64, err error)
+}
+
+type AuthorRepoI interface{
+	Create (ctx context.Context, req *author_service.CreateAuthorRequest)(resp *author_service.AuthorPrimaryKey, err error)
+	GetById(ctx context.Context, req *author_service.GetAuthorListRequest)(resp *author_service.AuthorPrimaryKey, err error)
 }
