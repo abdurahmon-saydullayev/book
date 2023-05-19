@@ -54,6 +54,6 @@ func (r *authorRepo) Create(ctx context.Context, req *author_service.CreateAutho
 	return
 }
 
-func (r *authorRepo) GetById(ctx context.Context, req *author_service.GetAuthorListRequest)(resp *author_service.AuthorPrimaryKey, err error){
+func (r *authorRepo) GetById(ctx context.Context, req *author_service.AuthorPrimaryKey)(resp *author_service.Author, err error){
 	return 
 }

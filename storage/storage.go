@@ -23,5 +23,5 @@ type BookRepoI interface {
 
 type AuthorRepoI interface{
 	Create (ctx context.Context, req *author_service.CreateAuthorRequest)(resp *author_service.AuthorPrimaryKey, err error)
-	GetById(ctx context.Context, req *author_service.GetAuthorListRequest)(resp *author_service.AuthorPrimaryKey, err error)
+	GetById(ctx context.Context, req *author_service.AuthorPrimaryKey)(resp *author_service.Author, err error)
 }

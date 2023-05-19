@@ -27,9 +27,17 @@ func NewGrpcClients(cfg config.Config) (ServiceManagerI, error) {
 		return nil, err
 	}
 
+	connAuthorService, err := grpc.Dial(
+		cfg.ServiceHost+cfg.ServicePort,
+		grpc.WithInsecure(),
+	)
+	if err != nil {
+		return nil, err
+	}
+
 	return &grpcClients{
 		bookService: book_service.NewBookServiceClient(connBookService),
-		authorService: author_service.NewAuthorServiceClient(connBookService),
+		authorService: author_service.NewAuthorServiceClient(connAuthorService),
 	}, nil
 }
 
@@ -38,5 +46,5 @@ func (g *grpcClients) BookService() book_service.BookServiceClient {
 }
 
 func (g *grpcClients) AuthorService()author_service.AuthorServiceClient{
-	return g.AuthorService()
+	return g.authorService
 }
