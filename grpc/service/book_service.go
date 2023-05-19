@@ -34,7 +34,6 @@ func (b *bookService) CreateBook(ctx context.Context, req *book_service.CreateBo
 	b.log.Info("---CreateBook--->", logger.Any("req", req))
 
 	pKey, err := b.strg.Book().Create(ctx, req)
-
 	if err != nil {
 		b.log.Error("!!!CreateBook--->", logger.Error(err))
 		return nil, status.Error(codes.InvalidArgument, err.Error())
